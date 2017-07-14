@@ -1,7 +1,7 @@
 ### Initialization
 
 In bash
-'''bash
+'''js
 npm install https://github.com/miyi/406lab.git
 cd 406lab
 yarn start
