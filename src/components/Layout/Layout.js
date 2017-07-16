@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 // import './App.css';
-import s from './App.css';
+import s from './Layout.css';
+import TestHead from './Header/TestHead'
 
 // class App extends Component {
 //   render() {
@@ -23,13 +24,8 @@ class App extends Component {
   render() {
     return (
       <div className={s.root}>
-        <div className={s.header}>
-          <img src={logo} className={s.logo} alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className={s.intro}>
-          To get started, edit <code>src/App.js</code> and save to reload. 
-        </p>
+        <TestHead/>
+        {this.props.children}
       </div>
     );
   }

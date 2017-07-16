@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+require('babel-polyfill');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const path    = require('path'),
       join    = path.join,
@@ -16,7 +17,7 @@ const dest    = join(root, 'public');
 const config = {
 	devtool: "cheap-eval-source-map",
 
-  entry: entry,
+  entry: ['babel-polyfill', entry],
   output: {
     filename: 'bundle.js',
     path: dest,
