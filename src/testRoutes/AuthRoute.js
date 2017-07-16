@@ -1,11 +1,5 @@
 import React from 'react';
-import { Redirect, Route, BrowserRouter, IndexRoute, Link } from 'react-router-dom';
-// import App from './App';
-// import Home from './Home/Home';
-// import Profile from './Profile/Profile';
-// import Chat from './Chat/Chat';
-// import Callback from './Callback/Callback';
-// import Auth from './Auth/Auth';
+import { Redirect, Route, BrowserRouter, Link } from 'react-router-dom';
 import history from 'history/createBrowserHistory';
 import Layout from '../components/layout/Layout'
 
