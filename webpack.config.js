@@ -76,6 +76,7 @@ const config = {
     new webpack.HotModuleReplacementPlugin() // Enable HMR
   ],
 	devServer: {
+    historyApiFallback: true,
 		hot: true, 
   	contentBase: dest,
   	compress: true,

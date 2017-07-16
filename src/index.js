@@ -18,7 +18,7 @@
 import ReactDOM from 'react-dom';
 import './index.css';
 // import 'bootstrap/dist/css/bootstrap.css';
-import { makeRoutes } from './routes/AuthRoute';
+import { makeRoutes } from './testRoutes/AuthRoute';
 
 const routes = makeRoutes();
 

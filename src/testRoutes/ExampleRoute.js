@@ -4,7 +4,7 @@ import {
   Route,
   Link
 } from 'react-router-dom'
-import history from './history'
+import history from 'history/createBrowserHistory'
 
 const makeRoutes = () => (
   <Router history={history}>

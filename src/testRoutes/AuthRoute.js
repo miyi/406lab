@@ -6,7 +6,7 @@ import { Redirect, Route, BrowserRouter, IndexRoute, Link } from 'react-router-d
 // import Chat from './Chat/Chat';
 // import Callback from './Callback/Callback';
 // import Auth from './Auth/Auth';
-import history from './history';
+import history from 'history/createBrowserHistory';
 import Layout from '../components/layout/Layout'
 
 // const auth = new Auth();
@@ -18,27 +18,27 @@ import Layout from '../components/layout/Layout'
 // }
 
 export const makeRoutes = () => {
-  // return (
-  //   <BrowserRouter history={history} component={Layout}>
-  //       <div>
-  //         <ul>
-  //           <li><Link to="/netflix">Netflix</Link></li>
-  //           <li><Link to="/zillow">Zillow Group</Link></li>
-  //           <li><Link to="/yahoo">Yahoo</Link></li>
-  //           <li><Link to="/modus">Modus Create</Link></li>
-  //         </ul>
-  //         <Route path="/netflix" render={(props) => <Netflix />} />
-  //         <Route path="/zillow" render={(props) => <Zillow />} />
-  //         <Route path="/yahoo" render={(props) => <Yahoo />} /> 
-  //         <Route path="/modus" render={(props) => <Modus />} />       
-  //       </div>
-  //   </BrowserRouter>
-  // );
   return (
-    <BrowserRouter history={history}>
-      <Layout/>
+    <BrowserRouter history={history} component={Layout}>
+      <div>
+        <ul>
+          <li><Link to="/netflix">Netflix</Link></li>
+          <li><Link to="/zillow">Zillow Group</Link></li>
+          <li><Link to="/yahoo">Yahoo</Link></li>
+          <li><Link to="/modus">Modus Create</Link></li>
+        </ul>
+        <Route path="/netflix" render={(props) => <Netflix />} />
+        <Route path="/zillow" render={(props) => <Zillow />} />
+        <Route path="/yahoo" render={(props) => <Yahoo />} /> 
+        <Route path="/modus" render={(props) => <Modus />} />       
+      </div>
     </BrowserRouter>
-  )
+  );
+  // return (
+  //   <BrowserRouter history={history}>
+  //     <Layout/>
+  //   </BrowserRouter>
+  // )
 }
 
 const Netflix = () => <div>Netlfix</div>
