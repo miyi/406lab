@@ -1,45 +1,51 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 
-const AnyReactComponent = ({ text }) => <div></div>;
+class Map extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      mapProps: {
+        center: { lat: 49.2606052, lng: -123.2459938 },
+        zoom: 15,
+        bounds: '',
+      },
+    };
+    this.onChange = this.onChange.bind(this);
+  }
 
-class SimpleMap extends Component {
+  onChange(newMapProps) {
+    this.setState({
+      mapProps: newMapProps,
+    });
+  }
 
-  // render() {
-  //   return (
-  //     <GoogleMapReact
-  //       defaultCenter={this.props.center}
-  //       defaultZoom={this.props.zoom}
-  //     >
-  //       <AnyReactComponent
-  //         lat={49.2606052}
-  //         lng={-123.2459938}
-  //         text={'UBC'}
-  //       />
-  //     </GoogleMapReact>
-  //   );
-  // }
   render() {
+    const center = this.state.mapProps.center;
+    const zoom = this.state.mapProps.zoom;
     return (
       <GoogleMapReact
+        center={center}
+        zoom={zoom}
         style={this.props.style}
-        center={this.props.center}
-        zoom={this.props.zoom}
-      >
-      </GoogleMapReact>
+        options={this.props.options}
+        onChange={this.onChange}
+      />
     );
   }
 }
 
-SimpleMap.defaultProps = {
-  center: {lat: 49.2606052, lng: -123.2459938},
-  zoom: 10,
+Map.defaultProps = {
   style: {
     position: 'relative',
     margin: 0,
     padding: 0,
     flex: 1,
-  }
+  },
+  options: {
+    minZoom: 3, 
+    maxZoom: 20,
+  },
 };
 
-export default SimpleMap;
+export default Map;
