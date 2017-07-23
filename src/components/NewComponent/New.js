@@ -1,4 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import s from './New.css'
 
-export default () => (<Link to='/New'>Click Me!</Link>)
+export default () => (
+	<div className={s.container}>
+		Hello World
+	</div>
+)

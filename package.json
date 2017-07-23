@@ -10,6 +10,9 @@
   ],
   "dependencies": {
     "babel-polyfill": "^6.23.0",
+    "dotenv": "^4.0.0",
+    "dotenv-webpack": "^1.5.3",
+    "google-map-react": "^0.24.0",
     "history": "^4.6.3",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",

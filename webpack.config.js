@@ -1,6 +1,9 @@
 const webpack = require('webpack');
-require('babel-polyfill');
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const NODE_ENV = process.env.NODE_ENV;
+// const dotenv = require('dotenv');
+const Dotenv = require('dotenv-webpack');
+
+
 const path    = require('path'),
       join    = path.join,
       resolve = path.resolve;
@@ -73,7 +76,12 @@ const config = {
  //    }),
  //  ],
   plugins: [
-    new webpack.HotModuleReplacementPlugin() // Enable HMR
+    new webpack.HotModuleReplacementPlugin(), // Enable HMR
+    new Dotenv({
+      path: './.env', // Path to .env file (this is the default)
+      safe: true // load .env.example (defaults to "false" which does not use dotenv-safe)
+    }),
+    new webpack.NamedModulesPlugin(),
   ],
 	devServer: {
     historyApiFallback: true,
