@@ -13,11 +13,12 @@
 //   document.getElementById('root')
 //);
 
-
+import 'babel-polyfill'
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
 import 'normalize.css/normalize.css';
+import registerServiceWorker from './registerServiceWorker';
 
 render(<App />, document.getElementById('root'));
 registerServiceWorker();

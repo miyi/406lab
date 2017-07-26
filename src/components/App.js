@@ -20,12 +20,15 @@
 // )
 
 import React, { Component } from 'react';
-import styles from './App.css';
-import Map from './map/Map';
 import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+
+import styles from './App.css';
+// import Map from './map/Map';
+import Map from './map/Map2'
+// import Layout from './layout/Layout'
 
 // for hmr to work I need the first class to extend Component
 export class Layout extends Component {
@@ -33,7 +36,9 @@ export class Layout extends Component {
     return (
       <Router>
         <div className={styles.layout}>
+
           <Route path="/" component={Map} />
+          
         </div>
       </Router>
     );
