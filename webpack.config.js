@@ -41,11 +41,11 @@ const config = {
 			{
         test: /\.css$/,
         use: [
-          { 
+          {
           	loader: "style-loader",
           	options: {
           		sourceMap: true,
-          	},	
+          	},
           },
           { loader: "css-loader",
           	options: {
@@ -85,7 +85,7 @@ const config = {
   ],
 	devServer: {
     historyApiFallback: true,
-		hot: true, 
+		hot: true,
   	contentBase: dest,
   	compress: true,
   	port: 9000,

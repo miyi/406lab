@@ -24,21 +24,25 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+import Homepage from './Homepage/Homepage' //import homepage
 
-import styles from './App.css';
+import './App.css';
 // import Map from './map/Map';
 import Map from './map/Map2'
 // import Layout from './layout/Layout'
+import injectTapEventPlugin from 'react-tap-event-plugin';
+
+injectTapEventPlugin();
+// Temporary setting for material-ui
 
 // for hmr to work I need the first class to extend Component
 export class Layout extends Component {
   render() {
     return (
       <Router>
-        <div className={styles.layout}>
-
-          <Route path="/" component={Map} />
-          
+        <div className="layout">
+          <Route exact path="/" component={Homepage} />
+          <Route path="/map" component={Map} />
         </div>
       </Router>
     );
