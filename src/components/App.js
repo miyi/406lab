@@ -24,17 +24,18 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+import history from 'history/createBrowserHistory';
 
 import styles from './App.css';
 // import Map from './map/Map';
-import Map from './map/Map2'
+import Map from './map/Map';
 // import Layout from './layout/Layout'
 
 // for hmr to work I need the first class to extend Component
 export class Layout extends Component {
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div className={styles.layout}>
 
           <Route path="/" component={Map} />
