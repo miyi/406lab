@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { getLocationPromise } from './GmapHelper.js';
 
 class Map extends Component {
   constructor(props) {
@@ -9,15 +10,53 @@ class Map extends Component {
         center: { lat: 49.2606052, lng: -123.2459938 },
         zoom: 15,
         bounds: '',
-      },
+			},
+      userCoords: '',
+      hoveredMarkerID: -1,
     };
     this.onChange = this.onChange.bind(this);
   }
 
-  onChange(newMapProps) {
+  componentDidMount() {
+		// getLocationPromise
+		// 	.then(function(userCoords) {
+		// 		const geolocation = {
+		// 			center: userCoords,
+		// 			zoom: 15,
+		// 			bounds: '',
+		// 		};
+		// 		this.setState({
+		// 			mapProps: geolocation,
+		// 			userCoords: userCoords,
+		// 		})
+		// 	}).catch((err) => {
+		// 		console.log(err);
+		// 	});
+		if (navigator && navigator.geolocation) {
+			navigator.geolocation.getCurrentPosition((pos) => {
+				this.setState({
+					mapProps: {
+						center: {lat: pos.coords.latitude, lng: pos.coords.longitude},
+						zoom: 16,
+						bounds: '',
+					},
+					userCoords: {lat: pos.coords.latitude, lng: pos.coords.longitude},
+				});
+			});
+		} else {
+			const errorMessage = 'please enable geolocation in browser';
+			console.log(errorMessage);
+		}	
+  }
+
+  onChange({center, zoom, bounds}) {
     this.setState({
-      mapProps: newMapProps,
-    });
+      mapProps: {
+        center: center,
+        zoom: zoom,
+        bounds: bounds,
+      },
+		});
   }
 
   render() {

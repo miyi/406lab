@@ -61,7 +61,7 @@ const buttonsToShow = (
   </div>
 )
 
-class Nav2 extends Component {
+class Nav extends Component {
 
   render(){
     return (
@@ -75,4 +75,4 @@ class Nav2 extends Component {
   }
 }
 
-export default Nav2;
+export default Nav;

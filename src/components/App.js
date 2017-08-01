@@ -28,7 +28,7 @@ import Homepage from './Homepage/Homepage' //import homepage
 
 import './App.css';
 // import Map from './map/Map';
-import Map from './map/Map2'
+import Map from './map/Map'
 // import Layout from './layout/Layout'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
