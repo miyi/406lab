@@ -14,6 +14,8 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {grey400, redA200, redA100, redA700, darkBlack, grey50, white, grey300, cyan500, fullBlack} from 'material-ui/styles/colors';
 import TimePicker from 'material-ui/TimePicker';
 import styles from './SearchBar.css'
+import Map from '../../map/Map'
+import { Link } from 'react-router';
 
 const muiTheme = getMuiTheme()
 
@@ -54,7 +56,10 @@ export default class SearchBar extends Component {
           </ToolbarGroup>
           <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
           <ToolbarGroup>
-            <RaisedButton label="Submit" style={MUIStyles.buttonstyle} />
+            <RaisedButton
+              label="GO"
+              style={MUIStyles.buttonstyle}
+            />
           </ToolbarGroup>
         </Toolbar>
       </MuiThemeProvider>

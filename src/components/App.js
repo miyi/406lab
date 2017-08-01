@@ -24,6 +24,7 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
+import histroy from 'history/createBrowserHistory'
 import Homepage from './Homepage/Homepage' //import homepage
 
 import './App.css';

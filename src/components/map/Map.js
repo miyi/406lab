@@ -46,7 +46,7 @@ class Map extends Component {
 		} else {
 			const errorMessage = 'please enable geolocation in browser';
 			console.log(errorMessage);
-		}	
+		}
   }
 
   onChange({center, zoom, bounds}) {
@@ -82,7 +82,7 @@ Map.defaultProps = {
     flex: 1,
   },
   options: {
-    minZoom: 3, 
+    minZoom: 3,
     maxZoom: 20,
   },
 };
