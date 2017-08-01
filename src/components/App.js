@@ -24,16 +24,12 @@ import {
   BrowserRouter as Router,
   Route,
 } from 'react-router-dom';
-<<<<<<< HEAD
-import histroy from 'history/createBrowserHistory'
-import Homepage from './Homepage/Homepage' //import homepage
-=======
 import history from 'history/createBrowserHistory';
->>>>>>> 37e8e50f5ea350353f265aa699369dc7b7a6acdf
 
-import './App.css';
+import styles from './App.css';
 // import Map from './map/Map';
 
+import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
 // import Layout from './layout/Layout'
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -48,7 +44,8 @@ export class Layout extends Component {
 
       <Router history={history}>
         <div className={styles.layout}>
-          <Route path="/" component={Map} />
+          <Route exact path="/" component={Homepage} />
+          <Route path="/map" component={Map} />
         </div>
       </Router>
     );
