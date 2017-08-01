@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
-import { getLocationPromise } from './GmapHelper.js';
 
 class Map extends Component {
   constructor(props) {
@@ -11,8 +10,7 @@ class Map extends Component {
         zoom: 15,
         bounds: '',
 			},
-      userCoords: '',
-      hoveredMarkerID: -1,
+			userCoords: '',
     };
     this.onChange = this.onChange.bind(this);
   }
@@ -48,7 +46,6 @@ class Map extends Component {
 			console.log(errorMessage);
 		}
   }
-
   onChange({center, zoom, bounds}) {
     this.setState({
       mapProps: {
