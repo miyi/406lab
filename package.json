@@ -9,6 +9,8 @@
     "not ie < 9"
   ],
   "dependencies": {
+    "auth0-js": "^8.8.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "dotenv": "^4.0.0",
     "dotenv-webpack": "^1.5.3",

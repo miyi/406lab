@@ -5,6 +5,7 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {grey400, redA200, redA100, redA700, darkBlack, grey50, white, grey300, cyan500, fullBlack} from 'material-ui/styles/colors';
 import {fade} from 'material-ui/utils/colorManipulator';
 import FlatButton from 'material-ui/FlatButton'
+import Auth from '../../Auth/Auth.js';
 
 /**
  * A simple example of `AppBar` with an icon on the right.
@@ -37,6 +38,9 @@ import FlatButton from 'material-ui/FlatButton'
    margin: 6
  }
 
+
+ const auth = new Auth();
+ auth.login();
 
 class Login extends Component {
   render() {
