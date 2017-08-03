@@ -8,7 +8,7 @@ export default {
   }, {
     loader: 'css-loader',
     options: {
-      localIdentName: '[sha512:hash:base32]-[name]-[local]',
+      localIdentName: '[path][name]__[local]--[hash:base64:5]',
       modules: true,
       sourceMap: IS_DEV
     }
