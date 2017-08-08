@@ -30,8 +30,8 @@ import styles from './App.css';
 // import Map from './map/Map';
 
 import Homepage from './Homepage/Homepage'
-import Map from './map/Map';
-// import Layout from './layout/Layout'
+// import Map from './map/Map';
+import Map from './map/Map2'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();

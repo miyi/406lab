@@ -8,7 +8,7 @@ import SimpleHover from './marker/SimpleHover';
 import { K_SIZE } from './marker/SimpleHoverStyle';
 
 //import markerdata
-import markerdata from './marker/markerdata'
+import markerData from './marker/markerdata'
 
 
 const UBC_POS = { lat: 49.2606052, lng: -123.2459938 };
@@ -23,7 +23,9 @@ class Map extends Component {
         bounds: '',
 			},
 			userCoords: '',
-    };
+			markers: markerData,
+		};
+		console.log(this.state.markers)
     this.onChange = this.onChange.bind(this);
   }
 
@@ -60,7 +62,8 @@ class Map extends Component {
 
   render() {
     const center = this.state.mapProps.center;
-    const zoom = this.state.mapProps.zoom;
+		const zoom = this.state.mapProps.zoom;
+		const markers = this.state.markers
     return (
       <GoogleMapReact
         bootstrapURLKeys={{
@@ -74,8 +77,7 @@ class Map extends Component {
         onChange={this.onChange}
         hoverDistance={K_SIZE/2}
       >
-        { this.state.userCoords ? <SimpleHover {...this.state.userCoords} key={5} id={1} text={''}/> : null }
-        { markerdata.map(({id, ...markerProps}) => <SimpleHover {...markerProps} key={id} />
+        { markers.map(({id, ...markerProps}) => <SimpleHover {...markerProps} key={id} />
 
         )}
       </GoogleMapReact>

@@ -1,4 +1,4 @@
-const K_SIZE = 40;
+const K_SIZE = 30;
 
 const Style = {
   // initially any map object has left top corner at lat lng coordinates
