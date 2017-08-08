@@ -93,12 +93,6 @@ const config = {
 			},
 	  ],
 	},
-	//unnecessary and expensive plguin
-	// plugins: [
- //    new BundleAnalyzerPlugin({
- //        analyzerMode: 'static'
- //    }),
- //  ],
   plugins: [
     new webpack.HotModuleReplacementPlugin(), // Enable HMR
     new Dotenv({

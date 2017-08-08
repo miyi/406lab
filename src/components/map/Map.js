@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import { onGeoSuccess, onGeofail, geoOptions } from './GmapHelper'
+import mapConfig from './GmapConfig'
+
+
+const UBC_POS = { lat: 49.2606052, lng: -123.2459938 };
 
 class Map extends Component {
   constructor(props) {
     super(props);
     this.state = {
       mapProps: {
-        center: { lat: 49.2606052, lng: -123.2459938 },
+        center: UBC_POS,
         zoom: 15,
         bounds: '',
 			},
@@ -16,43 +21,32 @@ class Map extends Component {
   }
 
   componentDidMount() {
-		// getLocationPromise
-		// 	.then(function(userCoords) {
-		// 		const geolocation = {
-		// 			center: userCoords,
-		// 			zoom: 15,
-		// 			bounds: '',
-		// 		};
-		// 		this.setState({
-		// 			mapProps: geolocation,
-		// 			userCoords: userCoords,
-		// 		})
-		// 	}).catch((err) => {
-		// 		console.log(err);
-		// 	});
 		if (navigator && navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((pos) => {
-				this.setState({
-					mapProps: {
-						center: {lat: pos.coords.latitude, lng: pos.coords.longitude},
-						zoom: 16,
-						bounds: '',
-					},
-					userCoords: {lat: pos.coords.latitude, lng: pos.coords.longitude},
-				});
-			});
+			navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const newCenter = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+          const newMapProps = {
+            center: newCenter,
+            zoom: 16,
+            bounds: '',
+          }
+          this.setState({
+            mapProps: newMapProps,
+          })
+        }, onGeofail, geoOptions);
 		} else {
 			const errorMessage = 'please enable geolocation in browser';
 			console.log(errorMessage);
 		}
   }
   onChange({center, zoom, bounds}) {
+    let newMapProps = {
+      center: center,
+      zoom: zoom,
+      bounds: bounds,
+    }
     this.setState({
-      mapProps: {
-        center: center,
-        zoom: zoom,
-        bounds: bounds,
-      },
+      mapProps: newMapProps,
 		});
   }
 
@@ -61,6 +55,10 @@ class Map extends Component {
     const zoom = this.state.mapProps.zoom;
     return (
       <GoogleMapReact
+        bootstrapURLKeys={{
+          key: 'AIzaSyD86-ToDtzkbbljieRyCwmXEXdMteVw7Bs',
+          language: 'en',
+        }}
         center={center}
         zoom={zoom}
         style={this.props.style}

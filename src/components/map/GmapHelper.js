@@ -1,27 +1,34 @@
-function getBrowserLocation() {
-  navigator.geolocation.getCurrentPosition((pos) => {
-    const coords = pos.coords;
-      return {
-          lat: coords.latitude,
-          lng: coords.longitude
-      }
-  })
+export function getBrowserLocation() {
+  return navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeofail, geoOptions)
 }
 
+export function onGeoSuccess(pos) {
+  const coords = pos.coords;
+  console.log('success');
+  return {
+    lat: coords.latitude,
+    lng: coords.longitude,
+  }
+}
+
+export function onGeofail(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
+export const geoOptions = {
+  enableHighAccuracy: false,
+  timeout: 8000,
+  maximumAge: 60000,
+};
 
 export const getLocationPromise = new Promise(
-  function(resolve, reject) {
+  (resolve, reject) => {
     if (navigator && navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((pos) => {
-        const userLocation = {
-          lat: pos.coords.latitude,
-          lng: pos.coords.longitude
-        };
-        resolve(userLocation);
-      })
+      resolve(getBrowserLocation());
     } else {
       var noNavi = 'geolocation not available';
       reject(noNavi);
     }
   }
 );
+
