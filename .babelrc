@@ -15,8 +15,11 @@
           }],
         }],
       	["transform-object-rest-spread"],
-      	["transform-react-jsx-source"],
-  		]
+        ["transform-react-jsx-source"],
+        //below two are needed for auth0
+        ["transform-class-properties"],
+        ["transform-decorators-legacy"],
+      ]
     }
   }
 }

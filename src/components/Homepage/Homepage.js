@@ -7,7 +7,7 @@ export default class Homepage extends Component {
   render() {
     return(
       <div>
-        <Nav />
+        <Nav auth={this.props.auth}/>
         <MainWords />
         <SearchBar />
       </div>

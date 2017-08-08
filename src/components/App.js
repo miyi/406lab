@@ -25,17 +25,25 @@ import {
   Route,
 } from 'react-router-dom';
 import history from 'history/createBrowserHistory';
-
 import styles from './App.css';
-// import Map from './map/Map';
 
 import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
+import Callback from './Callback/Callback'
 // import Layout from './layout/Layout'
 import injectTapEventPlugin from 'react-tap-event-plugin';
+import Auth from './Auth/Auth'
 
-injectTapEventPlugin();
 // Temporary setting for material-ui
+injectTapEventPlugin();
+
+//Auth0
+const auth = new Auth();
+const handleAuthentication = (nextState, replace) => {
+  if (/access_token|id_token|error/.test(nextState.location.hash)) {
+    auth.handleAuthentication();
+  }
+}
 
 // for hmr to work I need the first class to extend Component
 export class Layout extends Component {
@@ -44,8 +52,12 @@ export class Layout extends Component {
 
       <Router history={history}>
         <div className={styles.layout}>
-          <Route exact path="/" component={Homepage} />
+          <Route exact path="/" render={(props) => <Homepage auth={auth}/>} />
           <Route path="/map" component={Map} />
+          <Route path="/callback" render={(props) => {
+            handleAuthentication(props);
+            return <Callback {...props} />
+          }}/>
         </div>
       </Router>
     );
