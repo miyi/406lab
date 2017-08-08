@@ -3,6 +3,10 @@ import GoogleMapReact from 'google-map-react';
 import { onGeoSuccess, onGeofail, geoOptions } from './GmapHelper'
 import mapConfig from './GmapConfig'
 
+//simple hover test marker import
+import SimpleHover from './marker/SimpleHover';
+import { K_SIZE } from './marker/SimpleHoverStyle';
+
 
 const UBC_POS = { lat: 49.2606052, lng: -123.2459938 };
 
@@ -32,6 +36,7 @@ class Map extends Component {
           }
           this.setState({
             mapProps: newMapProps,
+            userCoords: newCenter,
           })
         }, onGeofail, geoOptions);
 		} else {
@@ -64,7 +69,10 @@ class Map extends Component {
         style={this.props.style}
         options={this.props.options}
         onChange={this.onChange}
-      />
+        hoverDistance={K_SIZE/2}
+      >
+        { this.state.userCoords ? <SimpleHover {...this.state.userCoords} key={1} id={1} text={'M'}/> : null }
+      </GoogleMapReact>
     );
   }
 }
