@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-// import shouldPureComponentUpdate from 'react-pure-render/function';
 import {Style, Hover} from './SimpleHoverStyle.js';
 import PropTypes from 'prop-types';
 
 export default class Marker extends Component {
-	
-	// shouldComponentUpdate = shouldPureComponentUpdate;
 
   constructor(props) {
     super(props);

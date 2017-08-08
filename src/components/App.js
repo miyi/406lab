@@ -1,24 +1,3 @@
-// import React from 'react'
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link
-// } from 'react-router-dom'
-// import history from 'history/createBrowserHistory'
-
-// import 'normalize.css/normalize.css'
-// import s from './App.css'
-// import Layout from './layout/Layout'
-// import Trial from './map/Trial'
-
-// export const makeRoutes = () => (
-//   <Router history={history}>
-//     <div className={s.map}>
-//       <Route exact path='/' component={Trial}/>
-//     </div>
-//   </Router>
-// )
-
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
@@ -27,11 +6,11 @@ import {
 import history from 'history/createBrowserHistory';
 
 import styles from './App.css';
-// import Map from './map/Map';
+import Map from './map/Map';
 
 import Homepage from './Homepage/Homepage'
-// import Map from './map/Map';
-import Map from './map/Map2'
+
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();
