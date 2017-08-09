@@ -1,21 +1,17 @@
-import React, { Component }from 'react';
-import IconMenu from 'material-ui/IconMenu';
-import IconButton from 'material-ui/IconButton';
-import FontIcon from 'material-ui/FontIcon';
-import NavigationExpandMoreIcon from 'material-ui/svg-icons/navigation/expand-more';
-import MenuItem from 'material-ui/MenuItem';
-import DropDownMenu from 'material-ui/DropDownMenu';
+import React, { Component } from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import {Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle} from 'material-ui/Toolbar';
 import TextField from 'material-ui/TextField';
 import TimeChooser from './TimeChooser';
+import DateChooser from './DateChooser';
+import SchoolChooser from './SchoolChooser';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {grey400, redA200, redA100, redA700, darkBlack, grey50, white, grey300, cyan500, fullBlack} from 'material-ui/styles/colors';
 import TimePicker from 'material-ui/TimePicker';
 import styles from './SearchBar.css'
 import Map from '../../map/Map'
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const muiTheme = getMuiTheme()
 
@@ -48,17 +44,18 @@ export default class SearchBar extends Component {
           </ToolbarGroup>
           <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
           <ToolbarGroup>
-            <TimePicker
-              hintText="Anytime"
-              okLabel="OK"
-              cancelLabel="CANCEL"
-            />
+            <SchoolChooser />
+          </ToolbarGroup>
+          <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
+          <ToolbarGroup>
+            <DateChooser />
           </ToolbarGroup>
           <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
           <ToolbarGroup>
             <RaisedButton
               label="GO"
               style={MUIStyles.buttonstyle}
+              containerElement={<Link to='/map' />}
             />
           </ToolbarGroup>
         </Toolbar>

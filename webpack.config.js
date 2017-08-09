@@ -1,6 +1,5 @@
 const webpack = require('webpack');
-const NODE_ENV = process.env.NODE_ENV;
-// const dotenv = require('dotenv');
+const IS_DEV =  require('isdev');
 const Dotenv = require('dotenv-webpack');
 const IS_DEV = require('isdev');
 
@@ -15,11 +14,8 @@ const entry   = join(src, 'index.js');
 const modules = join(root, 'node_modules');
 const dest    = join(root, 'public');
 
-// const isDev = NODE_ENV === 'development';
-// const staticAssetName = '[path][name].[ext]?[hash:8]';
-
 const config = {
-	devtool: "cheap-eval-source-map",
+	devtool: IS_DEV ? "inline-sourcemap" : null,
 
   entry: ['babel-polyfill', entry],
   output: {
@@ -30,12 +26,13 @@ const config = {
   module: {
 	  rules: [
 	    {
-	      test: /\.js$/,
+	      test: /\.jsx?$/,
 	      include: src,
 	      use: {
 	        loader: 'babel-loader',
 	        options: {
 	          presets: ['env'],
+            plugins: [require('babel-plugin-transform-class-properties')],
 	        }
 	      }
 	    },
