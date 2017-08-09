@@ -5,7 +5,11 @@ import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import {grey400, redA200, redA100, redA700, darkBlack, grey50, white, grey300, cyan500, fullBlack} from 'material-ui/styles/colors';
 import {fade} from 'material-ui/utils/colorManipulator';
 import FlatButton from 'material-ui/FlatButton'
-import Auth from '../Auth/Auth'
+import Auth from '../../Auth/Auth'
+import Login from './Login'
+import Styles from './Nav.css'
+import history from '../../Auth/history';
+import { Link } from 'react-router-dom';
 
 /**
  * A simple example of `AppBar` with an icon on the right.
@@ -34,49 +38,10 @@ import Auth from '../Auth/Auth'
  },
  })
 
- const loginStyle = {
-   margin: 6
- }
-
-class Login extends Component {
-  goTo(route) {
-    this.props.history.replace(`/${route}`)
-  }
-
-  login() {
-    this.props.auth.login();
-  }
-
-  logout() {
-    this.props.auth.logout();
-  }
-
-  render() {
-    const { isAuthenticated } = this.props.auth;
-
-    return(
-      !isAuthenticated()?
-        <FlatButton
-          label="Login"
-          secondary={true}
-          style={loginStyle}
-          onClick={this.login.bind(this)}
-        />
-      :
-        <FlatButton
-          label="Logout"
-          secondary={true}
-          style={loginStyle}
-          onClick={this.logout.bind(this)}
-        />
-      // <FlatButton label="Login" secondary={true} style={loginStyle} />
-    )
-  }
-}
 class SignUp extends Component {
   render() {
     return(
-      <FlatButton label="SignUp" secondary={true} style={loginStyle} />
+      <FlatButton label="SignUp" secondary={true} className={Styles.SignUpStyle}/>
     )
   }
 }
@@ -87,7 +52,7 @@ class Nav extends Component {
   render(){
 
     const buttonsToShow = (
-      <div>
+      <div className={Styles.ButtonStyle}>
         <SignUp />
         <Login {...this.props}/>
       </div>
@@ -97,6 +62,7 @@ class Nav extends Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <AppBar
           title="Lab406"
+          className={Styles.NavStyle}
           iconElementRight= {buttonsToShow}
         />
       </MuiThemeProvider>

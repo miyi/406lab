@@ -11,7 +11,7 @@ import {grey400, redA200, redA100, redA700, darkBlack, grey50, white, grey300, c
 import TimePicker from 'material-ui/TimePicker';
 import styles from './SearchBar.css'
 import Map from '../../map/Map'
-import { Link } from 'react-router';
+import { Link } from 'react-router-dom';
 
 const muiTheme = getMuiTheme()
 
@@ -55,7 +55,7 @@ export default class SearchBar extends Component {
             <RaisedButton
               label="GO"
               style={MUIStyles.buttonstyle}
-              href='http://localhost:9000/map'
+              containerElement={<Link to='/map' />}
             />
           </ToolbarGroup>
         </Toolbar>

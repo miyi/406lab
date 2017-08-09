@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Nav from './Nav';
+import Nav from './Nav/Nav';
 import MainWords from './MainWords/MainWords.js';
 import SearchBar from './SearchBar/SearchBar'
 
