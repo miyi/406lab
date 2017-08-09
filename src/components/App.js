@@ -6,15 +6,14 @@ import {
 import history from 'history/createBrowserHistory';
 
 import styles from './App.css';
-import Map from './map/Map';
-
 import Homepage from './Homepage/Homepage'
-
+//Maptests
+// import Map from './map/Map';
+import Map from './map/Map.1.js';
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
-
-injectTapEventPlugin();
 // Temporary setting for material-ui
+injectTapEventPlugin();
 
 // for hmr to work I need the first class to extend Component
 export class Layout extends Component {

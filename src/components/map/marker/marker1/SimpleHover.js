@@ -12,9 +12,7 @@ export default class Marker extends Component {
     const style = this.props.$hover ? Hover : Style;
 
     return (
-       <div style={style}>
-          {this.props.text}
-       </div>
+       <div style={style}/>
     );
   }
 }

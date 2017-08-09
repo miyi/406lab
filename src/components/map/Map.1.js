@@ -73,9 +73,9 @@ class Map extends Component {
         style={this.props.style}
         options={this.props.options}
         onChange={this.onChange}
-        hoverDistance={K_SIZE/2}
+        hoverDistance={K_SIZE/1.5}
       >
-        { markers.map(({id, ...markerProps}) => <Marker2 {...markerProps} key={id} /> )}
+        { this.state.userCoords ? <Marker2 {...this.state.userCoords} key={1} /> : null }
       </GoogleMapReact>
     );
   }

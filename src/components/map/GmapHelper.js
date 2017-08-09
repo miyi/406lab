@@ -14,7 +14,7 @@ function onGeofail(err) {
 }
 const geoOptions = {
   enableHighAccuracy: false,
-  timeout: 8000,
+  timeout: 10000,
   maximumAge: 60000,
 };
 
