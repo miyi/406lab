@@ -1,8 +1,6 @@
 const webpack = require('webpack');
 const IS_DEV =  require('isdev');
 const Dotenv = require('dotenv-webpack');
-const IS_DEV = require('isdev');
-
 
 const path    = require('path'),
       join    = path.join,

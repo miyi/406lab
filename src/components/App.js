@@ -9,8 +9,8 @@ import styles from './App.css';
 import Homepage from './Homepage/Homepage'
 
 //maptest
-// import Map from './map/Map';
-import Map from './map/Map.1.js';
+import Map from './map/Map';
+// import Map from './map/Map.1.js';
 
 import Callback from './Callback/Callback'
 import injectTapEventPlugin from 'react-tap-event-plugin';
