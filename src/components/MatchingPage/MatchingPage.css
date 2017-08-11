@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  margin: 0;
+}
+
+.menuContainer {
+  width: 50%;
+  float: left;
+}
+
+.mapContainer {
+  width: 50;
+  float:right;
+}

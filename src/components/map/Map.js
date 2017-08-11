@@ -47,6 +47,7 @@ class Map extends Component {
 			console.log(errorMessage);
 		}
   }
+
   onChange({center, zoom, bounds}) {
     let newMapProps = {
       center: center,
@@ -83,7 +84,6 @@ class Map extends Component {
 
 Map.defaultProps = {
   style: {
-    position: 'relative', 
     margin: 0,
     padding: 0,
     flex: 1,

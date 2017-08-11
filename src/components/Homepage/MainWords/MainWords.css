@@ -1,21 +1,21 @@
-.whole{
+.container{
+  margin: auto;
+  margin-top: 9vh;
   height: 300;
-  width: 100%;
+  width: 70%;
   text-align: left;
   font-family: 'Roboto', sans-serif;
 }
 
 .heading1{
-  font-size: 1000%;
+  font-size: 13vw;
   color: Salmon;
-  margin-top: 100px;
-  margin-left: 250px;
-  margin-bottom: 10px;
+  margin-bottom: 1vh;
+  margin: inherit;
 }
 
 .body1{
-  font-size: 400%;
-  margin-top: 25px;
-  margin-left: 250px;
+  font-size: 5vw;
+  margin-top: 1vh;
   color: dimGray;
 }

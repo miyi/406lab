@@ -8,7 +8,7 @@ import Avatar from 'material-ui/Avatar';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
-import Styles from './Nav.css'
+import styles from './Nav.css'
 import { Link } from 'react-router-dom'
 import { ListItem } from 'material-ui/List'
 
@@ -63,7 +63,6 @@ export default class Logout extends Component {
               <Avatar
                 src= {profile.picture}
                 size={30}
-                className={Styles.LoginStyle}
                />
             </IconButton>}
           onChange={this.handleChangeSingle}
@@ -71,7 +70,7 @@ export default class Logout extends Component {
           anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-        <ListItem value="1" primaryText="Profile" containerElement={<Link to="/map" />} />
+        <ListItem value="1" primaryText="Profile" containerElement={<Link to="/matchingPage" />} />
         <ListItem value="2" primaryText="Logout" onClick={this.logout.bind(this)} />
       </IconMenu>
 

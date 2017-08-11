@@ -20,7 +20,6 @@ export default class Login extends Component {
         <FlatButton
           label="Login"
           secondary={true}
-          className={Styles.loginStyle}
           onClick={this.login.bind(this)}
         />
       :

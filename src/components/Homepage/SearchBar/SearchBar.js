@@ -19,43 +19,36 @@ const MUIStyles = {
   toolbarStyle: {
     backgroundColor: grey50,
     justifyContent: 'space-around',
-    margin: 130,
     height: 50,
     borderColor: 'red',
   },
 
   ToolbarSeparatorStyle: {
-    height: 39,
-    margin: 6
+    height: 0
   },
-
-  buttonStyle: {
-    margin: 12,
-  }
 }
 
 export default class SearchBar extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <Toolbar style={MUIStyles.toolbarStyle}>
-          <ToolbarGroup firstChild={true}>
-            <TextField className={styles.textField1} hintText="Course" />
+        <Toolbar className={styles.container} style={MUIStyles.toolbarStyle}>
+          <ToolbarGroup className={styles.toolbar1} firstChild={true}>
+            <TextField style={{width: '12vw', fontSize: '1vw'}} hintText="Course" />
           </ToolbarGroup>
-          <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
-          <ToolbarGroup>
+          <ToolbarSeparator className={styles.toolbarSeparator} style={MUIStyles.ToolbarSeparatorStyle} />
+          <ToolbarGroup className={styles.toolbar1}>
             <SchoolChooser />
           </ToolbarGroup>
           <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
-          <ToolbarGroup>
+          <ToolbarGroup className={styles.toolbar1}>
             <DateChooser />
           </ToolbarGroup>
           <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
-          <ToolbarGroup>
+          <ToolbarGroup className={styles.goButton}>
             <RaisedButton
               label="GO"
-              style={MUIStyles.buttonstyle}
-              containerElement={<Link to='/map' />}
+              containerElement={<Link to='/matchingPage' />}
             />
           </ToolbarGroup>
         </Toolbar>

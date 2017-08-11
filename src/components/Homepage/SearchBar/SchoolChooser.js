@@ -4,7 +4,7 @@ import MenuItem from 'material-ui/MenuItem';
 
 const styles = {
   customWidth: {
-    width: 150,
+    width: '12vw',
   },
 };
 

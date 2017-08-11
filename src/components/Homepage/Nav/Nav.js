@@ -7,7 +7,7 @@ import {fade} from 'material-ui/utils/colorManipulator';
 import FlatButton from 'material-ui/FlatButton'
 import Auth from '../../Auth/Auth'
 import Login from './Login'
-import Styles from './Nav.css'
+import styles from './Nav.css'
 import history from '../../Auth/history';
 import { Link } from 'react-router-dom';
 
@@ -41,18 +41,18 @@ import { Link } from 'react-router-dom';
 class SignUp extends Component {
   render() {
     return(
-      <FlatButton label="SignUp" secondary={true} className={Styles.SignUpStyle}/>
+      <FlatButton label="SignUp" secondary={true} className={styles.SignUpStyle}/>
     )
   }
 }
 
 
-class Nav extends Component {
+export default class Nav extends Component {
 
   render(){
 
     const buttonsToShow = (
-      <div className={Styles.ButtonStyle}>
+      <div className={styles.ButtonStyle}>
         <SignUp />
         <Login {...this.props}/>
       </div>
@@ -61,13 +61,11 @@ class Nav extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <AppBar
-          title="Lab406"
-          className={Styles.NavStyle}
+          title={this.props.isHomepage? "Lab406" : ""}
+          className={styles.NavStyle}
           iconElementRight= {buttonsToShow}
         />
       </MuiThemeProvider>
     )
   }
 }
-
-export default Nav;

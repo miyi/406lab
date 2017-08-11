@@ -12,6 +12,8 @@ import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
 // import Map from './map/Map.1.js';
 
+import MatchingPage from './MatchingPage/MatchingPage'
+
 import Callback from './Callback/Callback'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Auth from './Auth/Auth'
@@ -35,8 +37,8 @@ export class Layout extends Component {
 
       <Router history={history}>
         <div className={styles.layout}>
-          <Route exact path="/" render={(props) => <Homepage auth={auth}/>} />
-          <Route path="/map" component={Map} />
+          <Route exact path="/" render={(props) => <Homepage auth={auth} isHomepage={true}/>} />
+          <Route path="/matchingPage" render={(props) => <MatchingPage auth={auth} isHomepage={false}/>} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />

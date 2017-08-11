@@ -1,3 +1,17 @@
-.textField1{
-  width: 15px
+.container {
+  width:55%;
+  margin: auto;
+  margin-top: 15vh;
+}
+
+.toolbar {
+  width: 15%
+}
+
+.goButton {
+  width: 10%
+}
+
+.toolbarSeperator {
+  height: 90vh;
 }
