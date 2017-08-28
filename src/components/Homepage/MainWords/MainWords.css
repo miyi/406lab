@@ -9,7 +9,7 @@
 
 .heading1{
   font-size: 13vw;
-  color: Salmon;
+  color: rgb(0, 105, 92);
   margin-bottom: 1vh;
   margin: inherit;
 }
@@ -17,5 +17,5 @@
 .body1{
   font-size: 5vw;
   margin-top: 1vh;
-  color: dimGray;
+  color: rgb(117, 117, 117);
 }

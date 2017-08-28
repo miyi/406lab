@@ -1,14 +1,15 @@
 .container {
-  width: 100%;
-  margin: 0;
+  padding: 0;
 }
 
-.menuContainer {
-  width: 50%;
-  float: left;
+.menu {
+  padding: 0;
 }
 
-.mapContainer {
-  width: 50;
-  float:right;
+.map {
+
+}
+
+.nav {
+  height: 50;
 }

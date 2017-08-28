@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {grey400, redA200, redA100, redA700, darkBlack, grey50, white, grey300, cyan500, fullBlack} from 'material-ui/styles/colors';
 import FlatButton from 'material-ui/FlatButton'
 import Auth from '../../Auth/Auth'
 import Avatar from 'material-ui/Avatar';
@@ -73,15 +70,6 @@ export default class Logout extends Component {
         <ListItem value="1" primaryText="Profile" containerElement={<Link to="/matchingPage" />} />
         <ListItem value="2" primaryText="Logout" onClick={this.logout.bind(this)} />
       </IconMenu>
-
-
-        // <FlatButton
-        //   label="Logout"
-        //   secondary={true}
-        //   style={loginStyle}
-        //   onClick={this.logout.bind(this)}
-        // />
-      // <FlatButton label="Login" secondary={true} style={loginStyle} />
     )
   }
 }

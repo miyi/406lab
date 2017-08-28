@@ -22,7 +22,7 @@ class Map extends Component {
         bounds: '',
 			},
 			userCoords: '',
-			markers: markerData,
+			markers: this.props.profiles,
 		};
     this.onChange = this.onChange.bind(this);
   }
@@ -83,11 +83,6 @@ class Map extends Component {
 }
 
 Map.defaultProps = {
-  style: {
-    margin: 0,
-    padding: 0,
-    flex: 1,
-  },
   options: {
     minZoom: 3,
     maxZoom: 20,
