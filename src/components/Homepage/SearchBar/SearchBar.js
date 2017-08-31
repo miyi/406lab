@@ -12,15 +12,15 @@ import TimePicker from 'material-ui/TimePicker';
 import styles from './SearchBar.css'
 import Map from '../../map/Map'
 import { Link } from 'react-router-dom';
-
-const muiTheme = getMuiTheme()
+import muiThemeable from 'material-ui/styles/muiThemeable';
 
 const MUIStyles = {
   toolbarStyle: {
-    backgroundColor: grey50,
+    width: 650,
+    backgroundColor: white,
     justifyContent: 'space-around',
     height: 50,
-    borderColor: 'red',
+    zDepth: 3,
   },
 
   ToolbarSeparatorStyle: {
@@ -34,11 +34,11 @@ export default class SearchBar extends Component {
       <MuiThemeProvider>
         <Toolbar className={styles.container} style={MUIStyles.toolbarStyle}>
           <ToolbarGroup className={styles.toolbar1} firstChild={true}>
-            <TextField style={{width: '12vw', fontSize: '1vw'}} hintText="Course" />
+            <TextField style={{width: '150', fontSize: '16'}} hintText="Any Course" />
           </ToolbarGroup>
           <ToolbarSeparator className={styles.toolbarSeparator} style={MUIStyles.ToolbarSeparatorStyle} />
           <ToolbarGroup className={styles.toolbar1}>
-            <SchoolChooser />
+            <TextField style={{width: '150', fontSize: '16'}} hintText="Any School" />
           </ToolbarGroup>
           <ToolbarSeparator style={MUIStyles.ToolbarSeparatorStyle} />
           <ToolbarGroup className={styles.toolbar1}>
@@ -48,7 +48,9 @@ export default class SearchBar extends Component {
           <ToolbarGroup className={styles.goButton}>
             <RaisedButton
               label="GO"
+              primary={true}
               containerElement={<Link to='/matchingPage' />}
+              style={{margin: 0,}}
             />
           </ToolbarGroup>
         </Toolbar>

@@ -29,7 +29,7 @@ export default class Nav extends Component {
 
     return (
         <AppBar
-          title={this.props.isHomepage? "Lab406" : ""}
+          title={this.props.isHomepage? "Tuutie" : ""}
           className={styles.NavStyle}
           iconElementRight= {buttonsToShow}
         />

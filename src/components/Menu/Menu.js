@@ -10,7 +10,6 @@ const styles = {
   },
   gridList: {
     width: 'auto',
-    height: 900,
     overflowY: 'auto',
     padding: 30,
   },

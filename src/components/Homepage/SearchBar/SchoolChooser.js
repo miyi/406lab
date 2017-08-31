@@ -22,6 +22,7 @@ export default class SchoolChooser extends Component {
     return (
       <div>
         <DropDownMenu
+          hintText="Any School"
           value={this.state.value}
           onChange={this.handleChange}
           style={styles.customWidth}

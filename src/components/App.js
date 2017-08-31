@@ -8,7 +8,7 @@ import styles from './App.css';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {grey400, teal800, teal900, teal300, darkBlack, grey600, grey800, grey50, white, grey300, cyan500, fullBlack} from 'material-ui/styles/colors';
+import {grey400, teal800, orange400, teal300, darkBlack, grey600, grey800, grey50, white, grey300, cyan500, fullBlack} from 'material-ui/styles/colors';
 
 import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
@@ -31,12 +31,13 @@ const handleAuthentication = (nextState, replace) => {
 
 const muiTheme = getMuiTheme({
 palette: {
-  primary1Color: white,
-   primary2Color: teal900,
+   primary1Color: white,
+   primary2Color: orange400,
    primary3Color: teal300,
    accent1Color: grey600,
    accent2Color: grey400,
    accent3Color: grey800,
+   alternateTextColor: orange400,
  },
 
 appBar: {
