@@ -1,5 +1,5 @@
-.container {
-  padding: 0;
+.grid {
+  overflow: hidden;
 }
 
 .menu {
@@ -7,13 +7,13 @@
 }
 
 .map {
-
+  height:auto;
 }
 
 .nav {
   height: 50;
 }
 
-.aaa{
-  padding: auto;
+.col{
+  padding: 0;
 }

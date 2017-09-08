@@ -67,7 +67,7 @@ export default class Logout extends Component {
           anchorOrigin={{horizontal: 'right', vertical: 'bottom'}}
           targetOrigin={{horizontal: 'right', vertical: 'top'}}
       >
-        <ListItem value="1" primaryText="Profile" containerElement={<Link to="/matchingPage" />} />
+        <ListItem value="1" primaryText="Profile" containerElement={<Link to="/dashboard" />} />
         <ListItem value="2" primaryText="Logout" onClick={this.logout.bind(this)} />
       </IconMenu>
     )

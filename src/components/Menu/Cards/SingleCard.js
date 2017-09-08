@@ -6,14 +6,17 @@ import styles from './SingleCard.css'
 
 export default class SingleCard extends Component {
   render() {
+    const spacing = <pre>   </pre>
     return(
-      <Card rounded={true}>
+      <Card rounded={true} zDepth={0}>
         <CardMedia>
           <img src={this.props.profileImg} alt="" style={{height: 250}} />
         </CardMedia>
         <CardHeader
-          title={this.props.name}
-          subtitle={this.props.rank}
+          title={"$" + this.props.hourlyWage + ' ' + this.props.rank}
+          subtitle={this.props.name + '  ·  ' + this.props.distance + 'km away'}
+          style={{padding:0, paddingTop:5,}}
+          textStyle={{fontWeight:900}}
           // avatar={<Avatar src={this.props.profileImg} size={60} />}
         />
         {/* <CardTitle title={this.props.title} subtitle={this.props.hourlyWage} />

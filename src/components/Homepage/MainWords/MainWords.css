@@ -1,17 +1,12 @@
 .container{
-  margin: auto;
-  margin-top: 9vh;
-  height: 300;
-  width: 70%;
-  text-align: left;
-  font-family: 'Roboto', sans-serif;
+  margin:auto;
+  text-align:left;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 .heading1{
-  font-size: 13vw;
+  font-size: 150px;
   color: rgb(255, 167, 38);
-  margin-bottom: 1vh;
-  margin: inherit;
 }
 
 .body1{

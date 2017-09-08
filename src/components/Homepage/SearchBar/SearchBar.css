@@ -1,11 +1,9 @@
 .container {
-  width:55%;
-  margin: auto;
-  margin-top: 15vh;
+  align-self: center;
 }
 
 .toolbar {
-  width: 15%
+  width: auto;
 }
 
 .goButton {

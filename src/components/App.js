@@ -12,7 +12,7 @@ import {grey400, teal800, orange400, teal300, darkBlack, grey600, grey800, grey5
 
 import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
-import MatchingPage from './MatchingPage/MatchingPage'
+import Dashboard from './Dashboard/Dashboard'
 import Callback from './Callback/Callback'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
@@ -30,10 +30,11 @@ const handleAuthentication = (nextState, replace) => {
 }
 
 const muiTheme = getMuiTheme({
+fontFamily: 'Ubuntu, sans-serif',
 palette: {
    primary1Color: white,
    primary2Color: orange400,
-   primary3Color: teal300,
+   primary3Color: orange400,
    accent1Color: grey600,
    accent2Color: grey400,
    accent3Color: grey800,
@@ -53,7 +54,7 @@ export class Layout extends Component {
         <Router history={history}>
           <div className={styles.layout}>
             <Route exact path="/" render={(props) => <Homepage auth={auth} isHomepage={true}/>} />
-            <Route path="/matchingPage" render={(props) => <MatchingPage auth={auth} isHomepage={false}/>} />
+            <Route path="/dashboard" render={(props) => <Dashboard auth={auth} isHomepage={false}/>} />
             <Route path="/callback" render={(props) => {
               handleAuthentication(props);
               return <Callback {...props} />

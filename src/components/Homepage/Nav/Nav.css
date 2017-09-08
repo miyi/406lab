@@ -1,14 +1,16 @@
 .NavStyle {
-  width: 100%;
   margin: auto;
   align-items: center;
+  justify-content: center;
 }
 
-.SignUpStyle {
+.otherButtons {
+  margin:auto;
   align-items: center;
   justify-content: center;
   font-size: 10em;
   padding: 0;
+  text-transform: none;
 }
 
 .ButtonStyle {

@@ -28,6 +28,7 @@
     "react-material-responsive-grid": "^1.2.0",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
+    "react-scrollbar": "^0.5.1",
     "react-split-pane": "^0.1.65",
     "react-tap-event-plugin": "^2.0.1",
     "react-virtualized": "^9.9.0"

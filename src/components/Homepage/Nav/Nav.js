@@ -6,11 +6,16 @@ import Login from './Login'
 import styles from './Nav.css'
 import history from '../../Auth/history';
 import { Link } from 'react-router-dom';
+import SearchBar from '../SearchBar/SearchBar.js'
 
-class SignUp extends Component {
+class ButtonsToShow extends Component {
   render() {
     return(
-      <FlatButton label="SignUp" secondary={true} className={styles.SignUpStyle}/>
+      <div>
+        <FlatButton label="Become a tutor" secondary={true} className={styles.otherButtons}/>
+        <FlatButton label="Messages" secondary={true} className={styles.otherButtons}/>
+        <FlatButton label="Help" secondary={true} className={styles.otherButtons}/>
+      </div>
     )
   }
 }
@@ -22,15 +27,22 @@ export default class Nav extends Component {
 
     const buttonsToShow = (
       <div className={styles.ButtonStyle}>
-        <SignUp />
+        <ButtonsToShow />
         <Login {...this.props}/>
       </div>
     )
 
     return (
+      this.props.isHomepage?
         <AppBar
-          title={this.props.isHomepage? "Tuutie" : ""}
+          title={"tuutie"}
           className={styles.NavStyle}
+          iconElementRight= {buttonsToShow}
+        />
+        :
+        <AppBar
+          className={styles.NavStyle}
+          iconElementLeft={<SearchBar isHomepage={this.props.isHomepage}/>}
           iconElementRight= {buttonsToShow}
         />
     )

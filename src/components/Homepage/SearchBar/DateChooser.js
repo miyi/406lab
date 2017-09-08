@@ -12,7 +12,7 @@ export default class DateChooser extends Component {
   render() {
     return(
       <div>
-        <DatePicker hintText="Today" mode="landscape" textFieldStyle={{width: '150', fontSize: '16'}} />
+        <DatePicker hintText="Anytime" mode="landscape" textFieldStyle={{width: '115', fontSize: '16'}} inputStyle={{color:'rgb(117, 117, 117)'}} hintStyle={{color:'rgb(117, 117, 117)'}}  underlineShow={false} style={{marginLeft:15}} />
       </div>
     )
   }

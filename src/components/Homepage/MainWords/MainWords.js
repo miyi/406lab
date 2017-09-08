@@ -6,11 +6,8 @@ export default class MainWords extends Component {
     return(
       <div className={styles.container}>
         <h1 className={styles.heading1}>
-          Tuutie
+          tuutie
         </h1>
-        <b1 className={styles.body1}>
-          Get a tutor with only 3 clicks
-        </b1>
       </div>
     )
   }
