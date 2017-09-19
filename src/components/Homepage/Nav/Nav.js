@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import FlatButton from 'material-ui/FlatButton'
 import Auth from '../../Auth/Auth'
-import Login from './Login'
+import Login from '../../Auth/LogButtons/Login'
 import styles from './Nav.css'
 import history from '../../Auth/history';
 import { Link } from 'react-router-dom';

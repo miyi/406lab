@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton'
-import Auth from '../../Auth/Auth'
+import Auth from '../Auth'
 import Avatar from 'material-ui/Avatar';
 import IconMenu from 'material-ui/IconMenu';
 import IconButton from 'material-ui/IconButton';
 import MenuItem from 'material-ui/MenuItem';
-import styles from './Nav.css'
 import { Link } from 'react-router-dom'
 import { ListItem } from 'material-ui/List'
 
