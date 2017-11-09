@@ -34,7 +34,12 @@ const config = {
             plugins: [require('babel-plugin-transform-class-properties')],
 	        }
 	      }
-	    },
+			},
+			{
+				test: /\.(graphql|gql)$/,
+				exclude: /node_modules/,
+				loader: 'graphql-tag/loader'
+			},
 			{
         test: /\.css$/,
         use: [

@@ -1,0 +1,3 @@
+targets:
+  lab406: shared-us-west-2/cj9oxv7as1acx0147kmqph1d6
+  default: lab406

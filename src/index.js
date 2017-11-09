@@ -1,24 +1,20 @@
-// import 'babel-polyfill'
-// import registerServiceWorker from './registerServiceWorker';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// // import 'bootstrap/dist/css/bootstrap.css';
-// import { makeRoutes } from './components/App';
-
-
-// const routes = makeRoutes();
-
-// ReactDOM.render(
-//   routes,
-//   document.getElementById('root')
-//);
-
 import 'babel-polyfill'
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
 import 'normalize.css/normalize.css';
 import registerServiceWorker from './registerServiceWorker';
+import { ApolloClient, HttpLink, InMemoryCache } from 'apollo-client-preset';
+import { ApolloProvider } from 'react-apollo';
 
-render(<App />, document.getElementById('root'));
+const client = new ApolloClient({
+  link: new HttpLink({ uri: 'https://api.graph.cool/simple/v1/cj9oxv7as1acx0147kmqph1d6' }),
+  cache: new InMemoryCache()
+});
+
+render(
+	<ApolloProvider client={client}>
+		<App />
+	</ApolloProvider>
+	, document.getElementById('root'));
 registerServiceWorker();

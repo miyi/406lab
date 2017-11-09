@@ -1,24 +1,3 @@
-// import React from 'react'
-// import {
-//   BrowserRouter as Router,
-//   Route,
-//   Link
-// } from 'react-router-dom'
-// import history from 'history/createBrowserHistory'
-
-// import 'normalize.css/normalize.css'
-// import s from './App.css'
-// import Layout from './layout/Layout'
-// import Trial from './map/Trial'
-
-// export const makeRoutes = () => (
-//   <Router history={history}>
-//     <div className={s.map}>
-//       <Route exact path='/' component={Trial}/>
-//     </div>
-//   </Router>
-// )
-
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
@@ -30,7 +9,8 @@ import styles from './App.css';
 import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
 import Callback from './Callback/Callback'
-// import Layout from './layout/Layout'
+import New from './NewComponent/New'
+
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Auth from './Auth/Auth'
 
@@ -54,6 +34,7 @@ export class Layout extends Component {
         <div className={styles.layout}>
           <Route exact path="/" render={(props) => <Homepage auth={auth}/>} />
           <Route path="/map" component={Map} />
+          <Route path="/new" component={New} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
