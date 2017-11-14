@@ -9,10 +9,16 @@ import styles from './App.css';
 import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
 import Callback from './Callback/Callback'
-import New from './NewComponent/New'
+import New from './NewComponent/facebook'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Auth from './Auth/Auth'
+
+//graphql imports
+import { gql, graphql, compose } from 'react-apollo'
+
+const FACEBOOK_APP_ID = 'v2.11'
+const FACEBOOK_API_VERSION = '313774479106949'
 
 // Temporary setting for material-ui
 injectTapEventPlugin();
@@ -26,7 +32,8 @@ const handleAuthentication = (nextState, replace) => {
 }
 
 // for hmr to work I need the first class to extend Component
-export class Layout extends Component {
+export class App extends Component {
+
   render() {
     return (
 
@@ -34,7 +41,7 @@ export class Layout extends Component {
         <div className={styles.layout}>
           <Route exact path="/" render={(props) => <Homepage auth={auth}/>} />
           <Route path="/map" component={Map} />
-          <Route path="/new" component={New} />
+          <Route path="/new" component={New}/>
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
             return <Callback {...props} />
@@ -45,4 +52,4 @@ export class Layout extends Component {
   }
 }
 
-export default Layout;
+export default App;

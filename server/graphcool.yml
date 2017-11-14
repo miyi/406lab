@@ -21,7 +21,7 @@ types: ./types.graphql
 functions:
 
 # added by facebook template: (please uncomment)
-# 
+
   facebookAuthentication:
     handler:
       code:
@@ -34,7 +34,6 @@ functions:
         src: ./src/facebook/loggedInUser.ts
     type: resolver
     schema: ./src/facebook/loggedInUser.graphql
-
   hello:
     handler:
       code: src/hello.js
