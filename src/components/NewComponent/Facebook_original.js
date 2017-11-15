@@ -1,29 +1,13 @@
+/*global FB*/
+
 import React from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter } from 'react-router'
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
-
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import RaisedButton from 'material-ui/RaisedButton'
 import 'tachyons'
 
-const styles = {
-  button: {
-    margin: 12,
-  },
-  exampleImageInput: {
-    cursor: 'pointer',
-    position: 'absolute',
-    top: 10,
-    bottom: 5,
-    right: 10,
-    left: 0,
-    width: '100%',
-    opacity: 0,
-  },
-};
-
 const FACEBOOK_APP_ID = '848421905339031'
+
 const FACEBOOK_API_VERSION = 'v2.11' // e.g. v2.10
 
 class App extends React.Component {
@@ -59,9 +43,10 @@ class App extends React.Component {
 
   _facebookCallback = async facebookResponse => {
     if (facebookResponse.status === 'connected') {
-      console.log(facebookResponse.authResponse)
       const facebookToken = facebookResponse.authResponse.accessToken
+      console.log('facebooktoken: ',facebookToken)
       const graphcoolResponse = await this.props.authenticateUserMutation({variables: { facebookToken }})
+      console.log('graphcoolRes: ', graphcoolResponse)
       const graphcoolToken = graphcoolResponse.data.authenticateUser.token
       console.log('graphcoolToken: ', graphcoolToken)
       localStorage.setItem('graphcoolToken', graphcoolToken)
@@ -72,6 +57,7 @@ class App extends React.Component {
   }
 
   _isLoggedIn = () => {
+    console.log(this.props.data)
     return this.props.data.loggedInUser && 
       this.props.data.loggedInUser.id && 
       this.props.data.loggedInUser.id !== ''
@@ -84,13 +70,10 @@ class App extends React.Component {
 
 
   render () {
-		console.log('rendering')
     if (this._isLoggedIn()) {
-			return this.renderLoggedIn()
-			console.log('logged in')
+      return this.renderLoggedIn()
     } else {
-			return this.renderLoggedOut()
-			console.log('not logged in')
+      return this.renderLoggedOut()
     }
 
   }
@@ -101,44 +84,33 @@ class App extends React.Component {
         <span>
           Logged in as ${this.props.data.loggedInUser.id}
         </span>
-        <div className='s.pv3'>
+        <div className='pv3'>
           <span
-            className='s.dib s.bg-red s.white s.pa3 s.pointer s.dim'
+            className='dib bg-red white pa3 pointer dim'
             onClick={this._logout}
           >
             Logout
           </span>
-				</div>
-				<div>Already logged In</div>
+        </div>
       </div>
     )
   }
 
   renderLoggedOut() {
     return (
-      <MuiThemeProvider>
-        <div>
-          <div className='pv3'>
-            <div>
-              <RaisedButton
-                backgroundColor="#3b5998"
-                label="facebook login"
-                labelColor="#ffffff"
-                style={styles}
-                onClick={this._handleFBLogin}
-              />
-              <span
-                onClick={this._handleFBLogin}
-                className='s.dib s.pa3 s.white s.bg-blue s.dim pointer'
-              >
-                Log in with Facebook
-              </span>
-            </div>
-            <span>Log in to create new posts</span>
+      <div>
+        <div className='pv3'>
+          <div>
+            <span
+              onClick={this._handleFBLogin}
+              className='dib pa3 white bg-blue dim pointer'
+            >
+              Log in with Facebook
+            </span>
           </div>
-          <div>please login</div>
+          <span>Log in to create new posts</span>
         </div>
-      </MuiThemeProvider>
+      </div>
     )
   }
 }

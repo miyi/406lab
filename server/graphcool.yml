@@ -21,7 +21,12 @@ types: ./types.graphql
 functions:
 
 # added by facebook template: (please uncomment)
-
+  newFacebookAuth:
+    handler:
+      code:
+        src: ./src/facebook/newFacebookAuth.ts
+    type: resolver
+    schema: ./src/facebook/newFacebookAuth.graphql
   facebookAuthentication:
     handler:
       code:
@@ -39,6 +44,11 @@ functions:
       code: src/hello.js
     type: resolver
     schema: src/hello.graphql
+  weather:
+    handler:
+     code: src/weatherTemplate.js
+    type: resolver
+    schema: src/weather.graphql
 
 
 # Model/Relation permissions are used to limit the API access

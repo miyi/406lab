@@ -1,0 +1,9 @@
+type weatherPayload {
+	temperature: Float!
+	pressure: Float!
+	windSpeed: Float!
+}
+
+extend type Query {
+	weather(city: String!): weatherPayload
+}

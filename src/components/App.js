@@ -9,7 +9,7 @@ import styles from './App.css';
 import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
 import Callback from './Callback/Callback'
-import New from './NewComponent/facebook'
+import New from './NewComponent/Facebook_original'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Auth from './Auth/Auth'
