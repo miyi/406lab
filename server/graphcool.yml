@@ -21,12 +21,12 @@ types: ./types.graphql
 functions:
 
 # added by facebook template: (please uncomment)
-  newFacebookAuth:
+  facebookAuthentication_template:
     handler:
       code:
-        src: ./src/facebook/newFacebookAuth.ts
+        src: ./src/facebook/facebookAuthentication_template.ts
     type: resolver
-    schema: ./src/facebook/newFacebookAuth.graphql
+    schema: ./src/facebook/facebookAuthentication_template.graphql
   facebookAuthentication:
     handler:
       code:
