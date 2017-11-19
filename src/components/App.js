@@ -9,16 +9,10 @@ import styles from './App.css';
 import Homepage from './Homepage/Homepage'
 import Map from './map/Map';
 import Callback from './Callback/Callback'
-import New from './NewComponent/Facebook_original'
+import New from './NewComponent/Facebook'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Auth from './Auth/Auth'
-
-//graphql imports
-import { gql, graphql, compose } from 'react-apollo'
-
-const FACEBOOK_APP_ID = 'v2.11'
-const FACEBOOK_API_VERSION = '313774479106949'
 
 // Temporary setting for material-ui
 injectTapEventPlugin();
@@ -36,7 +30,6 @@ export class App extends Component {
 
   render() {
     return (
-
       <Router history={history}>
         <div className={styles.layout}>
           <Route exact path="/" render={(props) => <Homepage auth={auth}/>} />

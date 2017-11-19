@@ -26,7 +26,7 @@ const styles = {
 const FACEBOOK_APP_ID = '848421905339031'
 const FACEBOOK_API_VERSION = 'v2.11' // e.g. v2.10
 
-class App extends React.Component {
+class FacebookLogin extends React.Component {
 
   componentDidMount() {
     this._initializeFacebookSDK()
@@ -59,7 +59,6 @@ class App extends React.Component {
 
   _facebookCallback = async facebookResponse => {
     if (facebookResponse.status === 'connected') {
-      console.log(facebookResponse.authResponse)
       const facebookToken = facebookResponse.authResponse.accessToken
       const graphcoolResponse = await this.props.authenticateUserMutation({variables: { facebookToken }})
       const graphcoolToken = graphcoolResponse.data.authenticateUser.token
@@ -72,6 +71,7 @@ class App extends React.Component {
   }
 
   _isLoggedIn = () => {
+    console.log(this.props.data)
     return this.props.data.loggedInUser && 
       this.props.data.loggedInUser.id && 
       this.props.data.loggedInUser.id !== ''
@@ -86,11 +86,11 @@ class App extends React.Component {
   render () {
 		console.log('rendering')
     if (this._isLoggedIn()) {
-			return this.renderLoggedIn()
-			console.log('logged in')
+      console.log('logged in')
+			return this.renderLoggedIn()			
     } else {
-			return this.renderLoggedOut()
-			console.log('not logged in')
+      console.log('not logged in')
+			return this.renderLoggedOut()			
     }
 
   }
@@ -162,4 +162,4 @@ const AUTHENTICATE_FACEBOOK_USER = gql`
 export default compose(
   graphql(AUTHENTICATE_FACEBOOK_USER, { name: 'authenticateUserMutation' }),
   graphql(LOGGED_IN_USER, { options: { fetchPolicy: 'network-only'}})
-) (withRouter(App))
+) (withRouter(FacebookLogin))
