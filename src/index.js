@@ -4,7 +4,7 @@ import { render } from 'react-dom';
 import App from './components/App';
 import 'normalize.css/normalize.css';
 import registerServiceWorker from './registerServiceWorker';
-
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 //apollo2.0
 import { ApolloLink } from 'apollo-link'
 import { HttpLink } from 'apollo-link-http';
@@ -34,9 +34,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-render(
-	<ApolloProvider client={client}>
-		<App />
-	</ApolloProvider>
-	, document.getElementById('root'));
+render((
+    <ApolloProvider client={client}>
+      <BrowserRouter>
+        <Switch>
+          <App/>
+        </Switch>
+      </BrowserRouter>
+    </ApolloProvider>
+  ), document.getElementById('root'));
 registerServiceWorker();

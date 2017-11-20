@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+//!!! --->withRouter here is kind of questionable
 import {
   BrowserRouter as Router,
   Route,
+  withRouter, 
 } from 'react-router-dom';
 import history from 'history/createBrowserHistory';
 import styles from './App.css';
@@ -12,37 +14,32 @@ import Callback from './Callback/Callback'
 import New from './NewComponent/Facebook'
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
-import Auth from './Auth/Auth'
+// import Auth from './Auth/Auth'
+//Auth0
+// const auth = new Auth();
+// const handleAuthentication = (nextState, replace) => {
+//   if (/access_token|id_token|error/.test(nextState.location.hash)) {
+//     auth.handleAuthentication();
+//   }
+// }
 
 // Temporary setting for material-ui
 injectTapEventPlugin();
 
-//Auth0
-const auth = new Auth();
-const handleAuthentication = (nextState, replace) => {
-  if (/access_token|id_token|error/.test(nextState.location.hash)) {
-    auth.handleAuthentication();
-  }
-}
+
 
 // for hmr to work I need the first class to extend Component
 export class App extends Component {
 
   render() {
     return (
-      <Router history={history}>
-        <div className={styles.layout}>
-          <Route exact path="/" render={(props) => <Homepage auth={auth}/>} />
-          <Route path="/map" component={Map} />
-          <Route path="/new" component={New}/>
-          <Route path="/callback" render={(props) => {
-            handleAuthentication(props);
-            return <Callback {...props} />
-          }}/>
-        </div>
-      </Router>
+      <div className={styles.layout}>
+        <Route exact path="/" render={(props) => <New/>} />
+        <Route path="/map" component={Map} />
+        <Route path="/new" component={New}/>
+      </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
