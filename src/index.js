@@ -2,6 +2,8 @@ import 'babel-polyfill'
 import React from 'react';
 import { render } from 'react-dom';
 import App from './components/App';
+import New from './components/NewComponents/Facebook.js'
+import Map from './components/map/Map'
 import 'normalize.css/normalize.css';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
@@ -38,7 +40,9 @@ render((
     <ApolloProvider client={client}>
       <BrowserRouter>
         <Switch>
-          <App/>
+          <Route path="/" component={App} />
+          <Route path="/map" component={Map} />
+          <Route path="/new" component={New}/>        
         </Switch>
       </BrowserRouter>
     </ApolloProvider>
