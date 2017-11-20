@@ -83,6 +83,9 @@ class App extends Component {
       console.warn(`User did not authorize the Facebook application.`)
     }
   }
+  _isLoading = () => {
+    return this.props.data.loading
+  }
   _isLoggedIn = () => {
     console.log(this.props.data)
     return this.props.data.loggedInUser && 
@@ -95,10 +98,14 @@ class App extends Component {
   }
 
   render () {
-    if (this._isLoggedIn()) {
-      return this.renderLoggedIn()
+    if (this._isLoading()) {
+      return <div>loading</div>
     } else {
-      return this.renderLoggedOut()
+      if (this._isLoggedIn()) {
+        return this.renderLoggedIn()
+      } else {
+        return this.renderLoggedOut()
+      }
     }
   }
   renderLoggedIn() {
@@ -115,6 +122,7 @@ class App extends Component {
             Logout
           </span>
         </div>
+
       </div>
     )
   }
@@ -159,4 +167,3 @@ graphql(AUTHENTICATE_FACEBOOK_USER, { name: 'authenticateUserMutation' }),
 graphql(LOGGED_IN_USER, { options: { fetchPolicy: 'network-only'}})
 ) (withRouter(App))
 
-export default withRouter(App);
