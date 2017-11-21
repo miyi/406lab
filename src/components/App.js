@@ -10,7 +10,10 @@ import gql from 'graphql-tag'
 import history from 'history/createBrowserHistory';
 import styles from './App.css';
 import Map from './map/Map';
+import {Load_1, Load_2} from './loading/LoadWindow'
 import New from './NewComponent/Facebook'
+
+import { FACEBOOK_API_VERSION, FACEBOOK_APP_ID } from '../constants'
 
 // import Homepage from './Homepage/Homepage'
 // import Callback from './Callback/Callback'
@@ -40,9 +43,6 @@ injectTapEventPlugin();
 //     );
 //   }
 // }
-
-const FACEBOOK_APP_ID = '848421905339031'
-const FACEBOOK_API_VERSION = 'v2.11'
 
 class App extends Component {
   
@@ -99,7 +99,7 @@ class App extends Component {
 
   render () {
     if (this._isLoading()) {
-      return <div>loading</div>
+      return <Load_2 />
     } else {
       if (this._isLoggedIn()) {
         return this.renderLoggedIn()

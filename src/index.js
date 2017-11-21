@@ -14,8 +14,10 @@ import { setContext } from 'apollo-link-context'
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+import { GRAPHCOOL_SERVICE_ID } from './constants'
 
-const httpLink = new HttpLink({ uri: 'https://api.graph.cool/simple/v1/cj9xhcv7502ko01631q4a3h3h' });
+const GC_Simple_Endpoint = 'https://api.graph.cool/simple/v1/'.concat(GRAPHCOOL_SERVICE_ID)
+const httpLink = new HttpLink({ uri: GC_Simple_Endpoint });
 
 const middlewareLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists

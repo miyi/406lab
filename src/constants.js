@@ -1,0 +1,3 @@
+export const GRAPHCOOL_SERVICE_ID = 'cj9xhcv7502ko01631q4a3h3h'
+export const FACEBOOK_APP_ID = '848421905339031'
+export const FACEBOOK_API_VERSION = 'v2.11'

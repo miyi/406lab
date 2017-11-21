@@ -4,7 +4,7 @@ import defaultProps from 'recompose/defaultProps';
 
 import { Motion } from 'react-motion';
 import { clusterMarkerHOC } from './ClusterMarker.js';
-import simpleMarkerStyles from './SimpleMarker.sass';
+import simpleMarkerStyles from './SimpleMarker.scss';
 
 export const simpleMarker = ({
   styles,
