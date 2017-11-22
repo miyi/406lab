@@ -7,6 +7,7 @@ import {
 import { graphql, compose } from 'react-apollo'
 import gql from 'graphql-tag'
 
+import getPosition from './HOC/geolocationHelper'
 import history from 'history/createBrowserHistory';
 import styles from './App.css';
 import Map from './map/Map';
@@ -18,8 +19,8 @@ import { FACEBOOK_API_VERSION, FACEBOOK_APP_ID } from '../constants'
 // import Homepage from './Homepage/Homepage'
 // import Callback from './Callback/Callback'
 
-import injectTapEventPlugin from 'react-tap-event-plugin';
-injectTapEventPlugin();
+// import injectTapEventPlugin from 'react-tap-event-plugin';
+// injectTapEventPlugin();
 
 // import Auth from './Auth/Auth'
 //Auth0
@@ -45,9 +46,33 @@ injectTapEventPlugin();
 // }
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+    this.state = { 
+      userGeolocation: {lat: 49.2606052, lng: -123.2459938},
+      userInfo: null
+   }
+  }
   
   componentDidMount() {
     this._initializeFacebookSDK()
+    this._getUserGeolocation()
+
+  }
+  _getUserGeolocation = async () => {
+    const userCoordinates = await getPosition().then((pos) => {
+      console.log(pos.coords)
+      return pos.coords
+    }).catch((err) => console.warn(err.message))
+    
+    this.setState({
+      userGeolocation: {
+        lat: userCoordinates.latitude,
+        lng: userCoordinates.longitude,
+      }
+    })
+    console.log('setState complete', this.state.userGeolocation)
   }
   _initializeFacebookSDK() {
     window.fbAsyncInit = function() {
@@ -75,7 +100,6 @@ class App extends Component {
     if (facebookResponse.status === 'connected') {
       const facebookToken = facebookResponse.authResponse.accessToken
       const graphcoolResponse = await this.props.authenticateUserMutation({variables: { facebookToken }})
-      console.log('graphcoolRes: ', graphcoolResponse)
       const graphcoolToken = graphcoolResponse.data.authenticateUser.token
       localStorage.setItem('graphcoolToken', graphcoolToken)
       window.location.reload()
