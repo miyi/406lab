@@ -3,6 +3,9 @@ import { GraphQLClient } from 'graphql-request'
 
 interface User {
   id: string
+  firstName: string
+  lastName: string
+  profilePic: string
 }
 
 export default async (event: FunctionEvent<{}>) => {
@@ -27,7 +30,12 @@ export default async (event: FunctionEvent<{}>) => {
       return { data: null }
     }
 
-    return { data: { id: user.id } }
+    return { data: { 
+      id: user.id,
+      firstName: user.firstName,
+      lastName: user.lastName,
+      profilePic: user.profilePic
+    } }
   } catch (e) {
     console.log(e)
     return { error: 'An unexpected error occured during authentication.' }
@@ -39,6 +47,9 @@ async function getUser(api: GraphQLClient, id: string): Promise<{ User }> {
     query getUser($id: ID!) {
       User(id: $id) {
         id
+        firstName
+        lastName
+        profilePic
       }
     }
   `

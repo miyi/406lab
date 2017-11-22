@@ -16,20 +16,6 @@ class Map extends Component {
   }
 
   componentDidMount() {
-		// getLocationPromise
-		// 	.then(function(userCoords) {
-		// 		const geolocation = {
-		// 			center: userCoords,
-		// 			zoom: 15,
-		// 			bounds: '',
-		// 		};
-		// 		this.setState({
-		// 			mapProps: geolocation,
-		// 			userCoords: userCoords,
-		// 		})
-		// 	}).catch((err) => {
-		// 		console.log(err);
-		// 	});
 		if (navigator && navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((pos) => {
 				this.setState({

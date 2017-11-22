@@ -19,3 +19,11 @@ Initialized development server with webpack-dev-server.
 ### Issues
 
 Auth loading time is long. app refreshes first before verification which shows an unlogged page, only to load again when verification is recieved, I suspect problems in the auth flow
+
+###TODO
+
+  - Add context
+  - Redo userLocation
+  - Redo Homepage
+
+  - 

@@ -150,6 +150,9 @@ const LOGGED_IN_USER = gql`
 query LoggedInUser {
   loggedInUser {
     id
+    firstName
+    lastName
+    profilePic
   }
 }
 `
