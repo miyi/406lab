@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const IS_DEV =  require('isdev');
 const Dotenv = require('dotenv-webpack');
+const IS_DEV = require('isdev');
 
 
 const path    = require('path'),
@@ -46,26 +47,51 @@ const config = {
           {
           	loader: "style-loader",
           	options: {
-          		sourceMap: true,
+          		sourceMap: IS_DEV,
           	},
           },
           { loader: "css-loader",
           	options: {
-          		sourceMap: true,
+          		sourceMap: IS_DEV,
           		importLoaders: 1,
           		modules: true,
           		localIdentName: '[path][name]__[local]--[hash:base64:5]',
           	},
-          },
-          { loader: "postcss-loader"},
+					},
+					{ loader: 'resolve-url-loader' },
+          { loader: 'postcss-loader'},
         ]
       },
+			{
+				test: /\.s[ac]ss$/,
+					use: [{
+						loader: 'style-loader',
+						// options: { sourceMap: IS_DEV }
+					}, {
+						loader: 'css-loader',
+						options: {
+							localIdentName: '[path][name]__[local]--[hash:base64:5]',
+							modules: true,
+							sourceMap: IS_DEV
+						}
+					}, {
+						loader: 'postcss-loader',
+						options: { sourceMap: IS_DEV }
+					},
+					{
+						loader: 'resolve-url-loader',
+					},
+					{
+						loader: 'sass-loader',
+						options: { sourceMap: IS_DEV,}
+					}]
+			},
       {
-        test: /\.svg/,
+        test: /\.(svg|png|jpg)$/,
         use: {
         	loader: 'url-loader',
-          loader: 'svg-url-loader',
 					loader: 'file-loader',
+<<<<<<< HEAD
           options: {},
         },
 			},
@@ -91,6 +117,10 @@ const config = {
 						}
 					}]
 			}
+=======
+        },
+			},
+>>>>>>> master
 	  ],
 	},
   plugins: [
