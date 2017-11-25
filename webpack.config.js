@@ -1,5 +1,4 @@
 const webpack = require('webpack');
-const IS_DEV =  require('isdev');
 const Dotenv = require('dotenv-webpack');
 const IS_DEV = require('isdev');
 
@@ -91,36 +90,8 @@ const config = {
         use: {
         	loader: 'url-loader',
 					loader: 'file-loader',
-<<<<<<< HEAD
-          options: {},
         },
 			},
-			{
-				test: /\.s[ac]ss$/,
-					use: [{
-						loader: 'style-loader',
-						options: { sourceMap: IS_DEV }
-					}, {
-						loader: 'css-loader',
-						options: {
-							localIdentName: '[path][name]__[local]--[hash:base64:5]',
-							modules: true,
-							sourceMap: IS_DEV
-						}
-					}, {
-						loader: 'postcss-loader',
-						options: { sourceMap: IS_DEV }
-					}, {
-						loader: 'sass-loader',
-						options: {
-							sourceMap: IS_DEV,
-						}
-					}]
-			}
-=======
-        },
-			},
->>>>>>> master
 	  ],
 	},
   plugins: [
